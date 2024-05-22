@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:13.15-bullseye
+    environment:
+      POSTGRES_DB: movie_catalog
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+      
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
