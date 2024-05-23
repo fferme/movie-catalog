@@ -1,12 +1,6 @@
-import { plainToClass } from 'class-transformer';
-import {
-  IsDateString,
-  IsInt,
-  IsNotEmpty,
-  IsString,
-  Length,
-} from 'class-validator';
-import { Movie } from '../entities/movie.entity';
+import { plainToClass } from "class-transformer";
+import { IsDateString, IsInt, IsNotEmpty, IsString, Length } from "class-validator";
+import { Movie } from "../models/movie.entity";
 
 export class CreateMovieDTO {
   @IsNotEmpty()

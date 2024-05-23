@@ -1,9 +1,9 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put } from "@nestjs/common";
-import { MovieService } from "./movie.service";
-import { CreateMovieDTO } from "./dto/create-movie.dto";
-import { MovieDTO } from "./dto/movie-dto";
-import { UpdateMovieDTO } from "./dto/update-movie.dto";
-import RedisService from "./lib/redis-service";
+import { MovieService } from "../services/movie.service";
+import { CreateMovieDTO } from "../dtos/create-movie.dto";
+import { MovieDTO } from "../dtos/movie-dto";
+import { UpdateMovieDTO } from "../dtos/update-movie.dto";
+import RedisService from "../../libs/redis-service";
 
 const radisService = RedisService.getInstance();
 const redisClient = radisService.getClient();

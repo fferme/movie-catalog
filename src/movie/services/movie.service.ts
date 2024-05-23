@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { CreateMovieDTO } from './dto/create-movie.dto';
-import { MovieDTO } from './dto/movie-dto';
-import { UpdateMovieDTO } from './dto/update-movie.dto';
-import { Movie } from './entities/movie.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { CreateMovieDTO } from "../dtos/create-movie.dto";
+import { MovieDTO } from "../dtos/movie-dto";
+import { UpdateMovieDTO } from "../dtos/update-movie.dto";
+import { Movie } from "../models/movie.entity";
 
 @Injectable()
 export class MovieService {
