@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieModule } from './movie/movie.module';
+import { Movie } from './movie/entities/movie.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
+      entities: [Movie],
       type: 'postgres',
       host: 'localhost',
       port: 5432,
@@ -16,11 +18,11 @@ import { MovieModule } from './movie/movie.module';
       database: 'movie_catalog',
       autoLoadEntities: true,
       synchronize: true,
-      logging: true
+      logging: true,
     }),
-    MovieModule
+    MovieModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

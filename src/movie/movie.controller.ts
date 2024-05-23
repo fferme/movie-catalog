@@ -1,34 +1,60 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { MovieService } from './movie.service';
-import { CreateMovieDto } from './dto/create-movie.dto';
-import { UpdateMovieDto } from './dto/update-movie.dto';
+import { CreateMovieDTO } from './dto/create-movie.dto';
+import { MovieDTO } from './dto/movie-dto';
+import { UpdateMovieDTO } from './dto/update-movie.dto';
 
-@Controller('movie')
+@Controller('movies')
 export class MovieController {
   constructor(private readonly movieService: MovieService) {}
 
   @Post()
-  create(@Body() createMovieDto: CreateMovieDto) {
+  public async create(
+    @Body() createMovieDto: CreateMovieDTO,
+  ): Promise<CreateMovieDTO> {
     return this.movieService.create(createMovieDto);
   }
 
   @Get()
-  findAll() {
+  public async findAll(): Promise<MovieDTO[]> {
     return this.movieService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.movieService.findOne(+id);
+  public async findById(@Param('id') id: string): Promise<MovieDTO> {
+    const movie: MovieDTO = await this.movieService.findById(id);
+
+    if (!movie) {
+      throw new NotFoundException('User does not exist!');
+    }
+
+    return movie;
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMovieDto: UpdateMovieDto) {
-    return this.movieService.update(+id, updateMovieDto);
+  @Put(':id')
+  public async update(
+    @Param('id') id: string,
+    @Body() updateMovieDTO: UpdateMovieDTO,
+  ): Promise<MovieDTO> {
+    return this.movieService.update(id, updateMovieDTO);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.movieService.remove(+id);
+  public async deleteById(@Param('id') id: string): Promise<void> {
+    await this.movieService.deleteById(id);
+  }
+
+  @Delete()
+  public async deleteAll(): Promise<void> {
+    await this.movieService.deleteAll();
   }
 }

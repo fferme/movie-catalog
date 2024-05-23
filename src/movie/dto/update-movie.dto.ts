@@ -1,5 +1,16 @@
 import { OmitType } from '@nestjs/mapped-types';
-import { CreateMovieDto } from './create-movie.dto';
+import { plainToClass } from 'class-transformer';
+import { Movie } from '../entities/movie.entity';
+import { CreateMovieDTO } from './create-movie.dto';
 
-export class UpdateMovieDto extends OmitType(CreateMovieDto, ['duration', 'language', 'releaseDate', 'parentalRating', 'trailerUrl'] as const) {
+export class UpdateMovieDTO extends OmitType(CreateMovieDTO, [
+  'duration',
+  'language',
+  'releaseDate',
+  'parentalRating',
+  'trailerUrl',
+] as const) {
+  static fromUpdateDTO(dto: UpdateMovieDTO): Movie {
+    return plainToClass(Movie, dto);
+  }
 }
