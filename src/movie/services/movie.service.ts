@@ -13,7 +13,7 @@ export class MovieService {
     private readonly movieRepository: Repository<Movie>,
   ) {}
 
-  public async create(createMovieDTO: CreateMovieDTO): Promise<CreateMovieDTO> {
+  public async create(createMovieDTO: CreateMovieDTO): Promise<MovieDTO> {
     return this.movieRepository.save(createMovieDTO);
   }
 
