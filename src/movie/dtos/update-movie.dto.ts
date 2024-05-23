@@ -1,16 +1,18 @@
-import { OmitType } from "@nestjs/mapped-types";
-import { plainToClass } from "class-transformer";
-import { Movie } from "../entities/movie.entity";
-import { CreateMovieDTO } from "./create-movie.dto";
+import { ApiProperty } from "@nestjs/swagger";
 
-export class UpdateMovieDTO extends OmitType(CreateMovieDTO, [
-  'duration',
-  'language',
-  'releaseDate',
-  'parentalRating',
-  'trailerUrl',
-] as const) {
-  static fromUpdateDTO(dto: UpdateMovieDTO): Movie {
-    return plainToClass(Movie, dto);
-  }
+export class UpdateMovieDTO {
+  @ApiProperty({ description: "Name of the movie" })
+  name: string;
+
+  @ApiProperty({ description: "Synopsis of the movie" })
+  synopsis: string;
+
+  @ApiProperty({ description: "Genres of the movie" })
+  genres: string;
+
+  @ApiProperty({ description: "Director of the movie" })
+  direction: string;
+
+  @ApiProperty({ description: "Cast of the movie" })
+  cast: string;
 }

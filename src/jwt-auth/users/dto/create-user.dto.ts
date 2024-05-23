@@ -1,5 +1,9 @@
-import { OmitType } from "@nestjs/mapped-types";
-import { User } from "../entities/user.entity";
+import { ApiProperty } from "@nestjs/swagger";
 
-export class CreateUserDTO extends OmitType(User, ["id"] as const) {
+export class CreateUserDTO {
+	@ApiProperty({ description: "Username of the user", maxLength: 15 })
+	username: string;
+
+	@ApiProperty({ description: "Password of the user", maxLength: 250 })
+	password: string;
 }
