@@ -1,6 +1,6 @@
 import { OmitType } from "@nestjs/mapped-types";
 import { plainToClass } from "class-transformer";
-import { Movie } from "../models/movie.entity";
+import { Movie } from "../entities/movie.entity";
 import { CreateMovieDTO } from "./create-movie.dto";
 
 export class UpdateMovieDTO extends OmitType(CreateMovieDTO, [
