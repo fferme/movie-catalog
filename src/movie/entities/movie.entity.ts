@@ -1,5 +1,5 @@
-import { IsInt, IsNotEmpty, IsString, Length } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsInt, IsNotEmpty, IsString, Length } from "class-validator";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Movie {

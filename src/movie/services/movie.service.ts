@@ -4,7 +4,7 @@ import { Repository } from "typeorm";
 import { CreateMovieDTO } from "../dtos/create-movie.dto";
 import { MovieDTO } from "../dtos/movie-dto";
 import { UpdateMovieDTO } from "../dtos/update-movie.dto";
-import { Movie } from "../models/movie.entity";
+import { Movie } from "../entities/movie.entity";
 
 @Injectable()
 export class MovieService {

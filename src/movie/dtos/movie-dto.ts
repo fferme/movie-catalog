@@ -1,3 +1,3 @@
-import { Movie } from "../models/movie.entity";
+import { Movie } from "../entities/movie.entity";
 
 export class MovieDTO extends Movie {}
