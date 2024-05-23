@@ -3,7 +3,8 @@ import {
   Controller,
   Delete,
   Get,
-  NotFoundException,
+  HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -31,13 +32,7 @@ export class MovieController {
 
   @Get(':id')
   public async findById(@Param('id') id: string): Promise<MovieDTO> {
-    const movie: MovieDTO = await this.movieService.findById(id);
-
-    if (!movie) {
-      throw new NotFoundException('User does not exist!');
-    }
-
-    return movie;
+    return await this.movieService.findById(id);
   }
 
   @Put(':id')
@@ -49,11 +44,13 @@ export class MovieController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   public async deleteById(@Param('id') id: string): Promise<void> {
     await this.movieService.deleteById(id);
   }
 
   @Delete()
+  @HttpCode(HttpStatus.NO_CONTENT)
   public async deleteAll(): Promise<void> {
     await this.movieService.deleteAll();
   }
