@@ -1,73 +1,99 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API de Gerenciamento de Filmes
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Esta é uma API RESTful desenvolvida com o framework NestJS para gerenciar filmes e controlar o tráfego de usuários com
+autenticação JWT.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Tecnologias Utilizadas
 
-## Description
+- **PostgreSQL**: Sistema de gerenciamento de banco de dados relacional, robusto e altamente escalável.
+- **Redis**: Armazenamento de estrutura de dados em memória, extremamente rápido e versátil, ideal para caching e
+  gerenciamento de filas de mensagens.
+- **NestJS**: Um framework Node.js para construir aplicativos escaláveis do lado do servidor. Ele utiliza TypeScript e é
+  construído com base na arquitetura do Angular.
+- **TypeORM**: Uma biblioteca de mapeamento objeto-relacional (ORM) para TypeScript e JavaScript. É usada para interagir
+  com o banco de dados relacional.
+- **Swagger**: Uma ferramenta de documentação para APIs RESTful. É usada para descrever e documentar os endpoints da API
+  de forma clara e abrangente.
+- **JWT (JSON Web Tokens)**: Um método padrão para transmitir informações de forma segura entre duas partes. É usado
+  para autenticação e geração de tokens de acesso.
+- **Class Validator**: Uma biblioteca para validação de dados em classes TypeScript. É usada para validar os dados de
+  entrada para a API.
+- **Class Transformer**: Uma biblioteca para transformação de classes em JavaScript/TypeScript. É usada para transformar
+  objetos de entrada em instâncias de classes.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Experiência
 
-## Installation
+Recentemente, dediquei-me ao estudo e aplicação de padrões de design, notando sua relevância neste projeto. Destaco a
+implementação do padrão Singleton, permitindo uma instância imutável, alinhada à abordagem com Redis. Com experiência
+em Java, encontrei uma curva de aprendizado suave com TypeScript e NestJS. Em aproximadamente sete meses, aprimorei meu
+domínio em TypeScript, incluindo sua aplicação no front-end do meu TCC em Angular. Também conduzi projetos de back-end
+em Nest.js de forma independente, ampliando minhas habilidades nessa área.
 
-```bash
-$ npm install
-```
+### Funcionalidades
 
-## Running the app
+- Documentação detalhada da API com Swagger
 
-```bash
-# development
-$ npm run start
+#### API de Usuários
 
-# watch mode
-$ npm run start:dev
+- Registro de usuários
+- Login e autenticação com JWT
+- Recuperação de informações do usuário
+- Exclusão de usuários
 
-# production mode
-$ npm run start:prod
-```
+#### API de Catálogo de Filmes
 
-## Test
+- Registro de filmes
+- Recuperação de informações de filmes
+- Atualização de detalhes do filme
+- Exclusão de filmes
 
-```bash
-# unit tests
-$ npm run test
+#### Instalação
 
-# e2e tests
-$ npm run test:e2e
+1. Clone o repositório: git clone https://github.com/fferme/movie-catalog
+2. Instale as dependências: npm install
+3. Configure as variáveis de ambiente em um arquivo .env
+4. Execute o servidor: npm run start:dev
 
-# test coverage
-$ npm run test:cov
-```
+#### Uso do Swagger
 
-## Support
+Acesse a documentação da API em http://localhost:3000/api#/default para obter informações sobre os endpoints e como
+utilizá-los.
+Faça requisições HTTP para os endpoints fornecidos na documentação para interagir com a API.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+#### Deploy
 
-## Stay in touch
+Deploy do banco de dados (Postgres) e dados em cache (Redis) foi feito utilizando o Aiven, que provisiona serviços da
+Digital Ocean. Já a aplicação foi provisionada no site Netlify.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+##### TypeORM com PostgreSQL (Aiven):
 
-## License
+- Tipo de Banco de Dados: PostgreSQL
+- Host: movie-catalog-postgres-movie-catalog-fferme.l.aivencloud.com
+- Porta: 20957
+- Nome de Usuário: avnadmin
+- Senha: AVNS_mAR5hA-Ef-AFjJurxDU
+- Banco de Dados: defaultdb
+- Opções Adicionais: SSL é ativado e configurado para rejeitar não autorizados, com o arquivo de certificado CA sendo
+  lido a partir de "./ca.pem".
 
-Nest is [MIT licensed](LICENSE).
+##### Redis (Aiven)
+
+- Host: movie-catalog-redis-movie-catalog-fferme.l.aivencloud.com
+- Porta: 20958
+- Nome de Usuário: default
+- Senha: AVNS_OY3E85e518t6uERf2dr
+- Opções Adicionais: Configurações para evitar limites de tentativas de solicitação e desabilitar a verificação de
+  prontidão.
+
+#### Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests para melhorias, correções de
+bugs ou novas funcionalidades.
+
+#### Licença
+
+Este projeto está licenciado sob a Licença MIT.
+
+Este README fornece uma visão geral das tecnologias utilizadas no projeto, suas funcionalidades, instruções de
+instalação e uso, diretrizes de contribuição e informações de licença. Certifique-se de personalizar as seções conforme
+necessário para refletir o conteúdo específico do seu projeto.
