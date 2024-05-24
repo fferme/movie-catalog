@@ -8,8 +8,12 @@ class RedisService {
 
    private constructor() {
       this.redisClient = new Redis({
-         host: "localhost",
-         port: 6379
+         host: "movie-catalog-redis-movie-catalog-fferme.l.aivencloud.com",
+         port: 20958,
+         username: "default",
+         password: "AVNS_OY3E85e518t6uERf2dr",
+         maxRetriesPerRequest: null,
+         enableReadyCheck: false
       });
    }
 
