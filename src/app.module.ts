@@ -10,7 +10,6 @@ import { User } from "./jwt-auth/users/entities/user.entity";
 import { AuthModule } from "./jwt-auth/auth/auth.module";
 import { APP_GUARD } from "@nestjs/core";
 import { AuthGuard } from "./jwt-auth/auth/auth.guard";
-import * as fs from "node:fs";
 
 @Module({
   imports: [
@@ -20,13 +19,15 @@ import * as fs from "node:fs";
       host: "movie-catalog-postgres-movie-catalog-fferme.l.aivencloud.com",
       port: 20957,
       username: "avnadmin",
-      password: "AVNS_mAR5hA-Ef-AFjJurxDU",
+      password: "AVNS_3SzBJRRLWJR9kRCV9NZ",
       database: "defaultdb",
       autoLoadEntities: true,
       synchronize: true,
-      ssl: {
-        rejectUnauthorized: true,
-        ca: fs.readFileSync("./ca.pem").toString()
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+          ca: process.env.SSL_CERT
+        }
       },
       logging: true,
     }),
