@@ -13,7 +13,10 @@ class RedisService {
          username: "default",
          password: "AVNS_OY3E85e518t6uERf2dr",
          maxRetriesPerRequest: null,
-         enableReadyCheck: false
+         enableReadyCheck: false,
+         tls: {
+            rejectUnauthorized: false
+         }
       });
    }
 

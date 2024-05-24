@@ -8,8 +8,6 @@ import { Movie } from "./movie/entities/movie.entity";
 import { UsersModule } from "./jwt-auth/users/users.module";
 import { User } from "./jwt-auth/users/entities/user.entity";
 import { AuthModule } from "./jwt-auth/auth/auth.module";
-import { APP_GUARD } from "@nestjs/core";
-import { AuthGuard } from "./jwt-auth/auth/auth.guard";
 
 @Module({
   imports: [
@@ -38,10 +36,10 @@ import { AuthGuard } from "./jwt-auth/auth/auth.guard";
   controllers: [AppController],
   providers: [
     AppService,
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard
-    }
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard
+    // }
   ]
 })
 export class AppModule {}
