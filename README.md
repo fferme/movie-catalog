@@ -56,34 +56,18 @@ em Nest.js de forma independente, ampliando minhas habilidades nessa área.
 
 #### Uso do Swagger
 
-Acesse a documentação da API em http://localhost:3000/api#/default para obter informações sobre os endpoints e como
+Acesse a documentação da API em https://movie-catalog-production-1924.up.railway.app/api para obter informações sobre os endpoints e como
 utilizá-los.
 Faça requisições HTTP para os endpoints fornecidos na documentação para interagir com a API.
 
 #### Deploy
 
 Deploy do banco de dados (Postgres) e dados em cache (Redis) foi feito utilizando o Aiven, que provisiona serviços da
-Digital Ocean. Já a aplicação foi provisionada no site Netlify.
+Digital Ocean. Já a aplicação foi provisionada no site Railway usando Github.
 
-##### TypeORM com PostgreSQL (Aiven):
-
-- Tipo de Banco de Dados: PostgreSQL
-- Host: movie-catalog-postgres-movie-catalog-fferme.l.aivencloud.com
-- Porta: 20957
-- Nome de Usuário: avnadmin
-- Senha: AVNS_mAR5hA-Ef-AFjJurxDU
-- Banco de Dados: defaultdb
-- Opções Adicionais: SSL é ativado e configurado para rejeitar não autorizados, com o arquivo de certificado CA sendo
-  lido a partir de "./ca.pem".
-
-##### Redis (Aiven)
-
-- Host: movie-catalog-redis-movie-catalog-fferme.l.aivencloud.com
-- Porta: 20958
-- Nome de Usuário: default
-- Senha: AVNS_OY3E85e518t6uERf2dr
-- Opções Adicionais: Configurações para evitar limites de tentativas de solicitação e desabilitar a verificação de
-  prontidão.
+- TypeORM com PostgreSQL (Aiven):
+- Redis (Aiven)
+- Railway (Deploy da Aplicação): `movie-catalog-production-1924.up.railway.app`
 
 #### Contribuição
 
